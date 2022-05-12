@@ -10,7 +10,7 @@
 .hero_container {
   color: $text-light;
   // background: linear-gradient(135deg, $Very-light-red, $Light-red);
-  height: 500px;
+  min-height: 600px;
   width: 100vw;
   background-image: url(../images/bg-pattern-intro-desktop.svg),
     linear-gradient(135deg, $Very-light-red, $Light-red);
@@ -18,6 +18,10 @@
   background-position: 30% 50%, 0% 0%;
   background-repeat: no-repeat, no-repeat;
   border-bottom-left-radius: 100px;
+
+  @include tablet {
+    min-height: 500px;
+  }
   /*---------------------------------Navbar-------------------------------------*/
 
   .nav {
@@ -35,6 +39,10 @@
     .nav_logo {
       cursor: pointer;
       margin-right: 50px;
+
+      @include tablet {
+        margin-right: 0;
+      }
     }
     .nav_links {
       cursor: pointer;
@@ -63,6 +71,14 @@
 
     & li {
       margin-right: 40px;
+
+      @include tablet {
+        margin-right: 0;
+      }
+
+      @include mobile {
+        margin-right: 0;
+      }
 
       &:hover .arrow,
       &:focus .arrow {
@@ -170,9 +186,32 @@
         justify-content: center;
         align-items: center;
 
-        li {
+        & ul {
+          text-align: center;
           margin: 0 auto;
-          padding: 0;
+          padding-bottom: 20px;
+
+          p {
+            display: inline-block;
+            padding-right: 5px;
+          }
+
+          & li {
+            margin-right: 0;
+            padding: 5px 0;
+            border-radius: 5px;
+            transition: 200ms ease-in-out;
+          }
+          & > li > ul > li {
+            margin-right: 0px;
+            cursor: pointer;
+            &:hover {
+              color: $text-light;
+              background: $Very-light-red;
+              padding: 5px 5px;
+              border-radius: 5px;
+            }
+          }
         }
       }
     }
@@ -191,17 +230,44 @@
     align-items: center;
 
     & .hero_title {
+      text-align: center;
       font-size: 1.8rem;
       font-weight: 600;
+
+      @include tablet {
+        text-align: center;
+        font-size: 1.5rem;
+      }
+
+      @include mobile {
+        text-align: center;
+        font-size: 1.2rem;
+      }
     }
     & p {
       margin-top: 1rem;
       font-size: 1.2rem;
       font-weight: 300;
+
+      @include tablet {
+        font-size: 1rem;
+      }
+
+      @include mobile {
+        font-size: 0.8rem;
+      }
     }
 
     & .hero_buttons {
       margin-top: 4rem;
+
+      @include tablet {
+        margin-top: 2rem;
+      }
+
+      @include mobile {
+        margin-top: 1rem;
+      }
 
       & .hero_button1 {
         border: 2px solid $text-light;
@@ -215,6 +281,14 @@
           border: 2px solid $hover-background;
           background: $hover-background;
           color: $text-light;
+        }
+
+        @include tablet {
+          padding: 10px 20px;
+        }
+
+        @include mobile {
+          padding: 5px 10px;
         }
       }
       & .hero_button2 {
@@ -230,6 +304,14 @@
           background: $text-light;
           color: $Very-dark-black-blue;
         }
+
+        @include tablet {
+          padding: 10px 20px;
+        }
+
+        @include mobile {
+          padding: 5px 10px;
+        }
       }
     }
   }
@@ -244,43 +326,130 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .desc1_title {
+
+  & .desc1_title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
     position: relative;
-    font-size: 1.5rem;
-    bottom: -130px;
+    margin: 35px 20px;
+
+    @include tablet {
+      font-size: 1.5rem;
+      position: static;
+      padding: 10px 5px;
+    }
+
+    @include mobile {
+      font-size: 1.2rem;
+      position: static;
+      padding: 10px 5px;
+    }
   }
   .desc1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+
+    @include tablet {
+      flex-direction: column;
+    }
+
+    @include mobile {
+      flex-direction: column;
+    }
 
     .desc1_details {
-      margin-right: 150px;
+      margin-left: 150px;
+
+      @include tablet {
+        margin-right: 0;
+        padding: 10px 10px;
+        margin: 0px 10px;
+      }
+
+      @include mobile {
+        margin-right: 0;
+        padding: 10px 10px;
+        margin: 0px 10px;
+      }
 
       .desc1_details_text {
         margin-bottom: 50px;
         line-height: 1.5;
 
+        @include tablet {
+          margin-bottom: 20px;
+        }
+
+        @include mobile {
+          margin-bottom: 10px;
+        }
         & h3 {
           margin-bottom: 20px;
           font-weight: 600;
+
+          @include tablet {
+            font-size: 1.2rem;
+          }
+
+          @include mobile {
+            font-size: 1rem;
+          }
         }
 
         & p {
+          font-size: 1.2rem;
           color: $Very-dark-grayish-blue;
           font-weight: 400;
+
+          @include tablet {
+            font-size: 1rem;
+          }
+
+          @include mobile {
+            font-size: 0.8rem;
+          }
         }
       }
     }
 
     .desc1_graphic {
-      width: 400px;
-      position: relative;
+      width: 500px;
+
+      @include tablet {
+        width: 300px;
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @include mobile {
+        width: 200px;
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
       & img {
-        // left: 70px;
         position: relative;
-        width: 800px;
+        right: 150px;
+        width: 700px;
+
+        @include tablet {
+          position: static;
+          right: 0px;
+          width: 400px;
+        }
+
+        @include mobile {
+          position: static;
+          right: 0px;
+          width: 300px;
+        }
       }
     }
   }
@@ -289,7 +458,7 @@
 /*---------------------------------Description-2-------------------------------------*/
 .desc2_container {
   color: $text-light;
-  margin-top: 50px;
+  margin-top: 150px;
   width: 100vw;
   height: 400px;
   background-image: url(../images/bg-pattern-circles.svg),
@@ -300,6 +469,48 @@
   border-bottom-left-radius: 100px;
   border-top-right-radius: 100px;
 
+  @include tablet {
+    height: 300px;
+  }
+
+  @include mobile {
+    height: 200px;
+  }
+
+  & .desc2_graphic {
+    width: 400px;
+    position: relative;
+
+    @include tablet {
+      width: 300px;
+      position: static;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include mobile {
+      width: 200px;
+      position: static;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    & img {
+      @include tablet {
+        width: 400px;
+      }
+
+      @include mobile {
+        width: 300px;
+      }
+
+      position: relative;
+      top: -40px;
+    }
+  }
+
   .desc2_details_container {
     display: flex;
     justify-content: space-between;
@@ -307,17 +518,58 @@
     position: relative;
     top: -70px;
 
+    @include tablet {
+      flex-direction: column;
+      top: 0;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      top: 0;
+    }
+
     .desc2_details {
-      & h3 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        font-weight: 600;
+      text-align: center;
+      margin-left: 150px;
+
+      @include tablet {
+        margin-left: 0px;
+        font-size: 1.5rem;
       }
 
-      & p {
+      @include mobile {
+        margin-left: 0px;
+        font-size: 1.2rem;
+      }
+    }
+    & h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+
+      @include tablet {
+        color: hsl(237deg, 23%, 32%);
+        font-size: 1.5rem;
+      }
+
+      @include mobile {
+        color: hsl(237deg, 23%, 32%);
+        font-size: 1.2rem;
+      }
+    }
+
+    & p {
+      font-size: 0.9rem;
+      font-weight: 400;
+
+      @include tablet {
+        font-size: 0.8rem;
+        color: $Very-dark-grayish-blue;
+      }
+
+      @include mobile {
         color: $text-gray;
-        font-size: 0.9rem;
-        font-weight: 400;
+        font-size: 0.7rem;
       }
     }
   }
@@ -332,32 +584,102 @@
   justify-content: center;
   align-items: center;
 
+  @include tablet {
+    margin-top: 300px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    text-align: center;
+  }
+
   .desc3_graphic {
     position: relative;
+
+    @include tablet {
+      width: 300px;
+      position: static;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include mobile {
+      width: 300px;
+      position: static;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     & img {
       right: 500px;
       position: relative;
+
+      @include tablet {
+        position: static;
+
+        width: 300px;
+      }
+
+      @include mobile {
+        position: static;
+        width: 300px;
+      }
     }
   }
 
   .desc3_details_container {
     margin-left: -400px;
 
+    @include tablet {
+      margin-left: 0px;
+      margin-top: 2rem;
+    }
+
+    @include mobile {
+      margin-left: 0px;
+    }
+
     .desc3_details_text {
-      margin-bottom: 50px;
       line-height: 1.5;
+
+      @include tablet {
+        margin-bottom: 20px;
+      }
+
+      @include mobile {
+        margin-bottom: 10px;
+      }
 
       & h3 {
         font-size: 2rem;
         margin-bottom: 2rem;
         font-weight: 600;
+
+        @include tablet {
+          font-size: 1.5rem;
+        }
+
+        @include mobile {
+          font-size: 1.2rem;
+        }
       }
 
       & p {
         color: $Very-dark-desaturated-blue;
         font-size: 0.9rem;
         font-weight: 400;
+
+        @include tablet {
+          font-size: 0.8rem;
+        }
+
+        @include mobile {
+          font-size: 0.7rem;
+        }
       }
     }
   }
@@ -369,7 +691,6 @@ footer {
   color: $text-light;
   margin-top: 50px;
   width: 100vw;
-  height: 400px;
   background-image: linear-gradient(
     90deg,
     $Very-dark-blue,
@@ -380,17 +701,45 @@ footer {
   background-repeat: no-repeat;
   border-top-right-radius: 100px;
 
+  @include tablet {
+    text-align: center;
+  }
+
+  @include mobile {
+    text-align: center;
+  }
+
   .footer {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding-top: 50px;
 
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+    }
+
     .footer_links {
       margin-right: 100px;
       padding-bottom: 2rem;
       list-style: none;
       font-weight: 600;
+
+      @include tablet {
+        margin-right: 0px;
+        padding-bottom: 0px;
+      }
+
+      @include mobile {
+        margin-right: 0px;
+        padding-bottom: 0px;
+      }
 
       .footer_sub_links {
         margin-top: 3rem;
